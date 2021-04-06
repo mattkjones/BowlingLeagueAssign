@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model IndexViewModel 
+
+<!--Heading for each team name-->
+<div class="text-center">
+    <h4>@Model.TeamName</h4>
+</div>
+
+<!--Create a table to iterate through the list of bowlers-->
+<table class="table table-bordered">
+    <!--Table Headers-->
+    <thead class="thead-light">
+        <tr><th>First Name</th><th>Middle Init.</th><th>Last Name</th><th>Address</th><th>City</th><th>State</th><th>Zip</th><th>Phone Number</th><th>Team</th></tr>
+    </thead>
+    <tbody>
+        <!--Gets every instance within the List-->
+        @foreach (var x in Model.Bowlers)
+        {
+            <tr>
+                <td>@x.BowlerFirstName</td>
+                <td>@x.BowlerMiddleInit</td>
+                <td>@x.BowlerLastName</td>
+                <td>@x.BowlerAddress</td>
+                <td>@x.BowlerCity</td>
+                <td>@x.BowlerState</td>
+                <td>@x.BowlerZip</td>
+                <td>@x.BowlerPhoneNumber</td>
+                <td>@x.TeamId</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!--Bring in paging-->
+<div class="text-center" page-info="@Model.PageNumberingInfo" page-action="Index" page-classes-enabled="true" 
+     page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-dark" 
+     page-url-team="@Model.TeamName">
+</div>

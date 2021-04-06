@@ -1,0 +1,18 @@
+﻿@*@model IEnumerable<string>*@
+@model IEnumerable<Team>
+
+<!--Have a button that always goes back to the home display-->
+<a class="btn btn-block btn-outline-dark" asp-action="Index" asp-controller="Home" asp-route-teamid="">Home</a>
+<br />
+
+@foreach (@*string team*@var x in Model)
+{
+    //Set up actions to point back to Index and the home controller, as well as setting
+    //up the routes for endpoint pointing
+    <a class="btn btn-block @(x.TeamName == ViewBag.SelectedCategory ? "btn-dark" : "btn-outline-dark")"
+       asp-action="Index" asp-controller="Home" 
+       asp-route-teamid="@x.TeamId" asp-route-team="@x.TeamName">
+        @x.TeamName
+    </a>
+    <br />
+}
