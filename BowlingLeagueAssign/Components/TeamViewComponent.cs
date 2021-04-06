@@ -20,7 +20,7 @@ namespace BowlingLeagueAssign.Components
         //Return Team information that will be used to assist in filtering
         public IViewComponentResult Invoke()
         {
-            ViewBag.SelectedTeam = RouteData?.Values["teamname"];
+            //ViewBag.SelectedTeam = RouteData?.Values["teamname"];
 
             return View(context.Teams
                 .Distinct()
